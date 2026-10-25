@@ -1,0 +1,5 @@
+# GitHub Pages: diese Dateien nicht mit auf der Website veröffentlichen
+exclude:
+  - CLAUDE.md
+  - ANLEITUNG.md
+  - scripts

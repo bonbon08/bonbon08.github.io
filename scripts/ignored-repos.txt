@@ -1,0 +1,12 @@
+# Repos, die absichtlich NICHT auf der Website stehen (ein Name pro Zeile).
+# check-repos.py meldet sie dann nicht mehr als "neu".
+bonbon08
+bonbon08.github.io
+testpackage
+mathtest
+Df-FC
+gfxsrc_demo
+Simple-sort
+Fibanocci_numbers
+Termlender
+Project-ideas

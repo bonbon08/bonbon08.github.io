@@ -70,6 +70,15 @@ const CATEGORIES = [
   },
 ];
 
+// Accounts im Bereich "Socials" – Reihenfolge = Anzeige-Reihenfolge, color = Farbstreifen links
+const SOCIALS = [
+  { name: "YouTube", handle: "@bonbon-v1x", url: "https://youtube.com/@bonbon-v1x", color: "#ff0000" },
+  { name: "Instagram", handle: "@bonbonv1x", url: "https://instagram.com/bonbonv1x", color: "#e4405f" },
+  { name: "GitHub", handle: "bonbon08", url: "https://github.com/bonbon08", color: "#3d8bff" },
+  { name: "itch.io", handle: "bonbon08", url: "https://bonbon08.itch.io/", color: "#fa5c5c" },
+  { name: "Mastodon", handle: "@bonbon08@mastodontech.de", url: "https://mastodontech.de/@bonbon08", color: "#6364ff", rel: "me" },
+];
+
 const STACK = {
   Sprachen: ["C", "Rust", "Python", "Dart", "NASM / Assembly"],
   Frameworks: ["Raylib", "Flutter", "ncurses", "Pygame", "Flask", "SQLite"],
@@ -102,6 +111,13 @@ function renderCategories() {
     </section>`).join("");
 }
 
+function renderSocials() {
+  $("#socials-list").innerHTML = SOCIALS.map((a) => `
+    <a class="social" style="--c:${a.color}" href="${a.url}" target="_blank" rel="${a.rel ? a.rel + " " : ""}noopener">
+      <span class="social__name">${a.name}</span><span class="social__handle">${a.handle}</span>
+    </a>`).join("");
+}
+
 function renderStack() {
   $("#stackList").innerHTML = Object.entries(STACK).map(([group, items]) => `
     <div class="stack__group">
@@ -126,4 +142,5 @@ function initTheme() {
 $("#year").textContent = new Date().getFullYear();
 initTheme();
 renderCategories();
+renderSocials();
 renderStack();

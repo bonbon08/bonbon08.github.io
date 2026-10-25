@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bonbon – Developer</title>
+  <meta name="description" content="Bonbon – 18-jähriger Developer aus Deutschland. Games in C, Emulatoren, Hardware und Apps.">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/92461066?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__logo" href="#top">bonbon<span class="accent">08</span></a>
+    <nav class="nav__links">
+      <a href="#about">Über mich</a>
+      <a href="#projects">Projekte</a>
+      <a href="#stack">Stack</a>
+      <a href="#socials">Socials</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Farbschema wechseln">◐</button>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__text">
+        <p class="prompt"><span class="accent">bonbon@arch</span>:~$ whoami</p>
+        <h1>Hi, ich bin <span class="accent">Bonbon</span><span class="cursor">_</span></h1>
+        <p class="hero__bio">
+          18-jähriger Developer aus Deutschland. Ich schreibe gerne Code, baue an Hardware
+          und lerne ständig neue Dinge – von eigenen CPUs und Emulatoren über Grafik-Formate bis zu Games und Apps.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#projects">Projekte ansehen</a>
+          <a class="btn" href="https://github.com/bonbon08" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="hero__avatar">
+        <img src="https://avatars.githubusercontent.com/u/92461066?v=4" alt="Avatar von Bonbon" width="220" height="220">
+        <span class="hero__badge">📍 Germany</span>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <h2 class="section__title"><span class="accent">#</span> Über mich</h2>
+      <div class="cards cards--3">
+        <article class="card">
+          <div class="card__icon">🔭</div>
+          <h3>Aktuell arbeite ich an</h3>
+          <p>
+            Meinem <a href="https://github.com/bonbon08/testgame_raylib" target="_blank" rel="noopener"><strong>Jump-Game</strong></a> in C &amp; Raylib für PC und Android,
+            dem Couch-Coop-Farmspiel <a href="https://github.com/bonbon08/Farm-game" target="_blank" rel="noopener"><strong>Farmi</strong></a>
+            und der Flutter-App <a href="https://github.com/bonbon08/Android_Jelly_Domscroll" target="_blank" rel="noopener"><strong>Jellyreels</strong></a>.
+          </p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🌱</div>
+          <h3>Gerade lerne ich</h3>
+          <p>
+            Mehr <strong>C</strong> (Raylib, ncurses, CMake), <strong>Flutter / Dart</strong> für Android-Apps
+            und wie CPUs ticken – z. B. mit meinem
+            <a href="https://github.com/bonbon08/Johnny_C" target="_blank" rel="noopener"><strong>Johnny-Simulator</strong></a> in C.
+          </p>
+        </article>
+        <article class="card">
+          <div class="card__icon">💬</div>
+          <h3>Frag mich zu</h3>
+          <p><strong>Linux</strong> (Arch &amp; PKGBUILDs), <strong>C &amp; Raylib</strong>, <strong>Python</strong> und <strong>Rust</strong>.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Featured projects -->
+    <section id="projects" class="section">
+      <h2 class="section__title"><span class="accent">#</span> Projekte</h2>
+
+      <article class="spotlight">
+        <div class="spotlight__label">Aktuelles Hauptprojekt</div>
+        <h3 class="spotlight__title">Jump-Game</h3>
+        <p>
+          Ein Arcade-Jump-Game in C mit Raylib, für PC und Android. Die Chiptune-Musik wird live im Code
+          synthetisiert (ganz ohne Musikdateien), es gibt einen Shop mit freischaltbaren Tracks und einen
+          <strong>Twitch-Plays-Modus</strong>, in dem der ganze Chat per „jump“ und „fall“ gemeinsam spielt.
+        </p>
+        <div class="spotlight__tags">
+          <span>C</span><span>Raylib</span><span>Android</span><span>Twitch-Chat</span>
+        </div>
+        <div class="spotlight__links">
+          <a class="btn btn--primary" href="https://github.com/bonbon08/testgame_raylib" target="_blank" rel="noopener">Zum Code</a>
+        </div>
+      </article>
+
+      <div class="categories" id="categories"></div>
+
+      <p class="more">
+        Noch mehr kleine Experimente findest du auf
+        <a href="https://github.com/bonbon08?tab=repositories" target="_blank" rel="noopener">GitHub</a> und Games auf
+        <a href="https://bonbon08.itch.io/" target="_blank" rel="noopener">itch.io</a>.
+      </p>
+    </section>
+
+    <!-- Tech stack -->
+    <section id="stack" class="section">
+      <h2 class="section__title"><span class="accent">#</span> Tech Stack</h2>
+      <div class="stack" id="stackList"></div>
+    </section>
+
+    <!-- Socials -->
+    <section id="socials" class="section">
+      <h2 class="section__title"><span class="accent">#</span> Socials</h2>
+      <div class="socials">
+        <a class="social social--yt" href="https://youtube.com/@bonbon-v1x" target="_blank" rel="noopener">
+          <span class="social__name">YouTube</span><span class="social__handle">@bonbon-v1x</span>
+        </a>
+        <a class="social social--ig" href="https://instagram.com/bonbonv1x" target="_blank" rel="noopener">
+          <span class="social__name">Instagram</span><span class="social__handle">@bonbonv1x</span>
+        </a>
+        <a class="social social--gh" href="https://github.com/bonbon08" target="_blank" rel="noopener">
+          <span class="social__name">GitHub</span><span class="social__handle">bonbon08</span>
+        </a>
+        <a class="social social--itch" href="https://bonbon08.itch.io/" target="_blank" rel="noopener">
+          <span class="social__name">itch.io</span><span class="social__handle">bonbon08</span>
+        </a>
+        <a class="social social--masto" href="https://mastodontech.de/@bonbon08" target="_blank" rel="me noopener">
+          <span class="social__name">Mastodon</span><span class="social__handle">@bonbon08@mastodontech.de</span>
+        </a>
+      </div>
+
+      <div class="donate">
+        <p>Dir gefallen meine Projekte? Du kannst mich mit einer Spende unterstützen 💰</p>
+        <a class="btn btn--primary" href="https://paypal.me/bonbon08v1x" target="_blank" rel="noopener">Via PayPal spenden</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Bonbon · gebaut mit HTML, CSS &amp; ein bisschen JS</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 const GH = "https://github.com/bonbon08/";
 
-// Projekte nach Themen sortiert
+// Projekte nach Themen sortiert – optional itch: "<slug>" = zusätzlicher „Spielen“-Link auf itch.io
 const CATEGORIES = [
   {
     icon: "🎮",
     title: "Games & Simulation",
     text: "Spiele und kleine Engines, inzwischen meistens in C mit Raylib.",
     projects: [
-      { name: "testgame_raylib", label: "Jump-Game", tech: "C · Raylib · Android", desc: "Arcade-Jumper mit Live-Chiptune-Musik, Shop und Twitch-Plays-Modus." },
+      { name: "testgame_raylib", label: "Jumper Chicken", itch: "jumper-chicken", tech: "C · Raylib · Android", desc: "Arcade-Jumper mit Live-Chiptune-Musik, Shop und Twitch-Plays-Modus." },
       { name: "Farm-game", label: "Farmi", tech: "C · Raylib", desc: "Couch-Coop-Farmspiel für 2 Spieler mit Quests, Shop und Tag/Nacht-Zyklus. Entstanden auf der Zugfahrt zum 39C3." },
       { name: "Aquarium", tech: "C", desc: "Ein kleines Aquarium mit zufällig generierten, bunten Fischen." },
       { name: "simple_2d_physikcsengine", label: "2D-Physik-Engine", tech: "Python", desc: "Eine simple 2D-Physik-Engine." },
@@ -75,7 +75,7 @@ const CATEGORIES = [
 // Spiele & Programme auf itch.io – slug = Teil der URL nach bonbon08.itch.io/, Bild liegt unter img/itch/<slug>.png
 const ITCH = "https://bonbon08.itch.io/";
 const GAMES = [
-  { slug: "jumper-chicken", title: "Jumper Chicken", tech: "Browser · Windows · Linux · Android", desc: "Hüpf als Huhn von Wand zu Wand, weich den Stacheln aus und schalte mit Münzen neue Hühner, Hintergründe und Chiptune-Musik frei." },
+  { slug: "jumper-chicken", title: "Jumper Chicken", tech: "C · Raylib · Browser · Windows · Linux · Android", desc: "Hüpf als Huhn von Wand zu Wand, weich den Stacheln aus und schalte mit Münzen neue Hühner, Hintergründe und Chiptune-Musik frei." },
   { slug: "pico-fallingblocks", title: "Pico Falling Blocks", tech: "PICO-8 · Browser", desc: "Kleines Action-Spiel mit herunterfallenden Blöcken, inzwischen in Version 3.0." },
   { slug: "pico-chicken", title: "Pico Chicken", tech: "PICO-8 · Browser", desc: "Kümmer dich um dein kleines Huhn, sonst ist es nach ein paar Minuten weg – ein Mini-Tamagotchi." },
   { slug: "jumpingpets", title: "Jumpingpets", tech: "PICO-8 · Browser", desc: "Überleb so lange wie möglich: Mit X springen – aber stößt dein Huhn oben an, ist es auch vorbei." },
@@ -128,7 +128,15 @@ function renderCategories() {
         </div>
       </header>
       <div class="category__grid">
-        ${c.projects.map((p) => `
+        ${c.projects.map((p) => p.itch ? `
+          <div class="project project--multi">
+            <a class="project__name project__main" href="${GH}${p.name}" target="_blank" rel="noopener">${p.label || p.name}</a>
+            <span class="project__desc">${p.desc}</span>
+            <span class="project__foot">
+              <span class="project__tech">${p.tech}</span>
+              <a class="project__play" href="${ITCH}${p.itch}" target="_blank" rel="noopener">▶ Spielen auf itch.io</a>
+            </span>
+          </div>` : `
           <a class="project" href="${GH}${p.name}" target="_blank" rel="noopener">
             <span class="project__name">${p.label || p.name}</span>
             <span class="project__desc">${p.desc}</span>

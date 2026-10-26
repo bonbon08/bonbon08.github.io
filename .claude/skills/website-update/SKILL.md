@@ -55,7 +55,7 @@ curl -sL -A "Mozilla/5.0" https://bonbon08.itch.io/<slug>
 ```
 
 Dann in `GAMES` in `script.js` eintragen (neueste oben): `slug`, `title`, `tech` (Engine/Sprache · Plattformen, z. B. „PICO-8 · Browser“), `desc` (deutsch, 1 Satz, aus der itch.io-Beschreibung, nichts erfinden).
-Gibt es dazu ein Repo in `CATEGORIES`, den User fragen, ob beides verknüpft/umbenannt werden soll.
+Gibt es dazu ein Repo in `CATEGORIES`, den User fragen, ob es dasselbe ist – wenn ja, dort `itch: "<slug>"` setzen (zeigt „▶ Spielen auf itch.io“) und `label` an den itch.io-Namen anpassen.
 
 **Neue YouTube-Videos:**
 - Zeichen-Timelapses (Shorts) → vorne in `VIDEOS` einfügen, `title` kurz auf Deutsch ohne Hashtags („drawing a cow #art“ → „Kuh“). Höchstens 6 Einträge: hinten die ältesten entfernen.
@@ -68,6 +68,12 @@ Gibt es dazu ein Repo in `CATEGORIES`, den User fragen, ob beides verknüpft/umb
 Nur lokale Bilder und Links, keine Embeds/Widgets.
 
 ## 5. Prüfen und hochladen
+
+Cache-Version hochzählen, damit Browser nicht die alte `script.js`/`style.css` aus dem Cache nehmen (sonst bleiben neue Bereiche leer):
+
+```bash
+V=$(date +%Y%m%d%H%M); sed -i -E "s/(style\.css|script\.js)\?v=[0-9]+/\1?v=$V/g" index.html
+```
 
 ```bash
 node --check script.js

@@ -9,7 +9,7 @@ Sprache der Seite und der Antworten an den User: **Deutsch** (locker, Du-Form).
 
 - `index.html` – Gerüst und feste Texte: Hero, „Über mich“-Karten (Aktuell / Lerne / Frag mich), Spotlight (Hauptprojekt)
 - `script.js` – **alle Inhalte als Daten**, ganz oben in der Datei:
-  - `CATEGORIES` – Projekte nach Themen; `name` = exakter GitHub-Repo-Name (daraus wird der Link), `label` = optionaler Anzeigename, `tech`, `desc` (deutsch, 1 Satz)
+  - `CATEGORIES` – Projekte nach Themen; `name` = exakter GitHub-Repo-Name (daraus wird der Link), `label` = optionaler Anzeigename, `itch` = optionaler itch.io-Slug für „Spielen“-Link, `tech`, `desc` (deutsch, 1 Satz)
   - `SOCIALS` – Accounts: `name`, `handle`, `url`, `color` (Markenfarbe), optional `rel: "me"` (Mastodon-Verifizierung)
   - `GAMES` – Spiele/Programme von itch.io (`slug` = URL-Teil, Cover lokal unter `img/itch/<slug>.png`)
   - `VIDEOS` – Zeichen-Timelapses (YouTube-Shorts, `id`, deutscher `title`, Vorschau lokal unter `img/yt/<id>.jpg`, schwarze Ränder abgeschnitten)
@@ -26,6 +26,7 @@ Sprache der Seite und der Antworten an den User: **Deutsch** (locker, Du-Form).
 - **Keine externen Ressourcen** einbinden (keine Google Fonts, CDNs, Tracker, eingebettete YouTube/Instagram-Widgets). Grund: DSGVO, kein Impressum/keine Datenschutzerklärung nötig. Bilder und Schriften lokal ablegen.
 - **Kein Spendenlink / keine Monetarisierung** (PayPal o. ä.) – der User hat sich bewusst dagegen entschieden, damit die Seite privat bleibt und kein Impressum braucht. Wenn er so etwas will: auf die Impressumspflicht hinweisen.
 - Repo-Beschreibungen auf GitHub sind oft leer oder englisch → Beschreibung aus README, Dateien und Commits ableiten und auf Deutsch formulieren. Nichts erfinden; wenn unklar, nachfragen oder vorsichtig formulieren.
+- In `index.html` hängen `style.css?v=…` und `script.js?v=…` – bei jeder Änderung an CSS/JS die Zahl erhöhen (Cache).
 - Kein Build-Schritt, kein Framework – reines HTML/CSS/JS. Nach Änderungen an `script.js`: `node --check script.js`.
 - Vor dem Push dem User kurz zeigen, was sich ändert, und erst nach seinem OK pushen.
 

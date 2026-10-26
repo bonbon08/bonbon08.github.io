@@ -227,6 +227,15 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 48px); }
 }
 .project:hover { text-decoration: none; transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow); }
 .project__name { font-weight: 700; font-size: 1.05rem; }
+/* Karte mit zwei Links: Titel-Link deckt die ganze Karte ab, „Spielen“ liegt darüber */
+.project--multi { position: relative; }
+.project--multi:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow); }
+.project__main { color: var(--text); }
+.project__main:hover { text-decoration: none; }
+.project__main::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.project__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-top: .4rem; }
+.project__foot .project__tech { margin-top: 0; }
+.project__play { position: relative; z-index: 1; font-size: .85rem; font-weight: 700; }
 .project__desc { color: var(--muted); font-size: .93rem; flex: 1; }
 .project__tech {
   align-self: flex-start;

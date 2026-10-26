@@ -2,6 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(python3 -I scripts/check-repos.py)",
+      "Bash(python3 -I scripts/check-media.py)",
+      "Bash(python3 -I scripts/check-media.py --bilder)",
       "Bash(node --check script.js)",
       "Bash(gh api repos/bonbon08/:*)",
       "Bash(git pull --ff-only)",

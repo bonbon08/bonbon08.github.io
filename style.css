@@ -182,7 +182,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 48px); }
   margin-bottom: 3rem;
 }
 .spotlight::after {
-  content: "JUMP";
+  content: "LED";
   position: absolute;
   right: -1rem; bottom: -2.5rem;
   font-family: var(--mono);
@@ -253,6 +253,16 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 48px); }
 }
 
 /* Socials */
+/* itch.io & Zeichnen */
+.section__intro { color: var(--muted); max-width: 44rem; margin: -.75rem 0 1.5rem; }
+.project--media { padding-top: 0; overflow: hidden; }
+.project__img { display: block; width: calc(100% + 2.6rem); max-width: none; margin: 0 -1.3rem .6rem; aspect-ratio: 315 / 250; object-fit: cover; image-rendering: pixelated; background: var(--border); }
+.videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+.video { display: flex; flex-direction: column; gap: .5rem; color: var(--text); font-size: .93rem; font-weight: 500; transition: transform .15s; }
+.video:hover { text-decoration: none; transform: translateY(-3px); }
+.video img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); background: #fff; }
+.video:hover img { border-color: var(--accent); }
+
 .socials { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
 .social {
   display: flex;

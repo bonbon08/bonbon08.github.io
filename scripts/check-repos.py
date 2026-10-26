@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 RECENT_DAYS = 60
 
 script = (ROOT / "script.js").read_text(encoding="utf-8")
-categories = script[script.index("const CATEGORIES"):script.index("const SOCIALS")]
+categories = script[script.index("const CATEGORIES"):script.index("const ITCH")]
 on_site = set(re.findall(r'name: "([^"]+)"', categories))
 
 ignored = {

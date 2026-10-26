@@ -7,6 +7,8 @@ Alles, was du normalerweise änderst, steht oben in **`script.js`**:
 | Was                     | Wo in `script.js` |
 |-------------------------|-------------------|
 | Projekte / Repos        | `CATEGORIES`      |
+| Spiele auf itch.io      | `GAMES` (Bild nach `img/itch/<slug>.png`) |
+| Zeichen-Videos YouTube  | `VIDEOS` (Bild nach `img/yt/<id>.jpg`)    |
 | Accounts (YouTube usw.) | `SOCIALS`         |
 | Tech Stack              | `STACK`           |
 
@@ -27,7 +29,7 @@ Dann eingeben:
 /website-update
 ```
 
-Claude holt deine Repos, sortiert neue ein, frischt „Aktuell arbeite ich an“ auf,
+Claude holt deine Repos, itch.io-Spiele und YouTube-Zeichnungen, sortiert neue ein, frischt „Aktuell arbeite ich an“ auf,
 zeigt dir die Änderungen und lädt nach deinem OK hoch.
 
 Mit Wunsch dazu, z. B.:
@@ -52,6 +54,13 @@ Zeigt dir:
 - **NEUE Repos**: noch nicht auf der Seite
 - **nicht mehr auf GitHub**: gelöscht/umbenannt, also auch von der Seite nehmen
 - **ZULETZT AKTIV**: gute Kandidaten für „Aktuell arbeite ich an“
+
+Für itch.io und YouTube:
+
+```bash
+python3 scripts/check-media.py            # zeigt neue Spiele/Videos
+python3 scripts/check-media.py --bilder   # lädt fehlende Bilder nach img/
+```
 
 ### 2. Neues Repo eintragen
 

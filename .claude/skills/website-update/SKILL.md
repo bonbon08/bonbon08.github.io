@@ -1,6 +1,6 @@
 ---
 name: website-update
-description: Website mit den aktuellen GitHub-Repos und Accounts von bonbon08 abgleichen und aktualisieren – neue Repos einsortieren, "Aktuell arbeite ich an" auffrischen, neue Social-Accounts eintragen, dann nach OK pushen.
+description: Website mit den aktuellen GitHub-Repos, itch.io-Spielen, YouTube-Zeichenvideos und Accounts von bonbon08 abgleichen und aktualisieren – neue Repos einsortieren, "Aktuell arbeite ich an" auffrischen, neue Spiele und Videos eintragen, neue Social-Accounts eintragen, dann nach OK pushen.
 ---
 
 # Website aktualisieren
@@ -13,6 +13,7 @@ Optionaler Wunsch des Users: $ARGUMENTS
 ```bash
 git pull --ff-only
 python3 -I scripts/check-repos.py
+python3 -I scripts/check-media.py
 ```
 
 ## 2. Neue Repos
@@ -43,11 +44,35 @@ Die Liste „ZULETZT AKTIV“ mit den Karten in `index.html` vergleichen:
 
 Neuen Eintrag in `SOCIALS` in `script.js`: `name`, `handle`, `url`, `color` (Markenfarbe). Link vorher mit `curl -sI <url>` prüfen, wenn möglich. Keine Widgets/Embeds einbauen, nur Links.
 
+## 4b. itch.io und YouTube (immer mit abgleichen)
+
+`check-media.py` zeigt neue Spiele auf itch.io und neue Videos auf YouTube.
+
+**Neue itch.io-Spiele** → Detailseite ansehen (Beschreibung, „Made with“, Plattformen, Status):
+
+```bash
+curl -sL -A "Mozilla/5.0" https://bonbon08.itch.io/<slug>
+```
+
+Dann in `GAMES` in `script.js` eintragen (neueste oben): `slug`, `title`, `tech` (Engine/Sprache · Plattformen, z. B. „PICO-8 · Browser“), `desc` (deutsch, 1 Satz, aus der itch.io-Beschreibung, nichts erfinden).
+Gibt es dazu ein Repo in `CATEGORIES`, den User fragen, ob beides verknüpft/umbenannt werden soll.
+
+**Neue YouTube-Videos:**
+- Zeichen-Timelapses (Shorts) → vorne in `VIDEOS` einfügen, `title` kurz auf Deutsch ohne Hashtags („drawing a cow #art“ → „Kuh“). Höchstens 6 Einträge: hinten die ältesten entfernen.
+- Andere Videos (z. B. Intros, Programmier-Videos) → User fragen, ob und wo sie auf die Seite sollen.
+
+**Bilder:** danach `python3 -I scripts/check-media.py --bilder` – lädt fehlende Cover/Vorschaubilder nach `img/` und schneidet die schwarzen Shorts-Ränder ab. Unter „UNBENUTZTE Bilder“ gelistete Dateien löschen.
+
+**Instagram** ist ohne Login nicht lesbar → nichts automatisch ändern; nur falls der User Bilder/Infos liefert.
+
+Nur lokale Bilder und Links, keine Embeds/Widgets.
+
 ## 5. Prüfen und hochladen
 
 ```bash
 node --check script.js
 python3 -I scripts/check-repos.py   # sollte jetzt keine neuen Repos mehr zeigen
+python3 -I scripts/check-media.py   # keine neuen Spiele/Videos, keine fehlenden Bilder
 git diff --stat
 ```
 

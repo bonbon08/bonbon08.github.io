@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bonbon – Developer</title>
-  <meta name="description" content="Bonbon – 18-jähriger Developer aus Deutschland. Games in C, Emulatoren, Hardware und Apps.">
+  <meta name="description" content="Bonbon – 18-jähriger Developer aus Deutschland. Games in C und PICO-8, Emulatoren, Hardware, Apps und Zeichnungen.">
   <link rel="icon" href="avatar.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -14,6 +14,8 @@
     <nav class="nav__links">
       <a href="#about">Über mich</a>
       <a href="#projects">Projekte</a>
+      <a href="#itch">Games</a>
+      <a href="#art">Zeichnen</a>
       <a href="#stack">Stack</a>
       <a href="#socials">Socials</a>
     </nav>
@@ -29,6 +31,7 @@
         <p class="hero__bio">
           18-jähriger Developer aus Deutschland. Ich schreibe gerne Code, baue an Hardware
           und lerne ständig neue Dinge – von eigenen CPUs und Emulatoren über Grafik-Formate bis zu Games und Apps.
+          Und wenn ich gerade nicht code, zeichne ich.
         </p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="#projects">Projekte ansehen</a>
@@ -49,18 +52,18 @@
           <div class="card__icon">🔭</div>
           <h3>Aktuell arbeite ich an</h3>
           <p>
-            Meinem <a href="https://github.com/bonbon08/testgame_raylib" target="_blank" rel="noopener"><strong>Jump-Game</strong></a> in C &amp; Raylib für PC und Android,
-            dem Couch-Coop-Farmspiel <a href="https://github.com/bonbon08/Farm-game" target="_blank" rel="noopener"><strong>Farmi</strong></a>
-            und der Flutter-App <a href="https://github.com/bonbon08/Android_Jelly_Domscroll" target="_blank" rel="noopener"><strong>Jellyreels</strong></a>.
+            Meiner <a href="https://github.com/bonbon08/pico-ledmatrix" target="_blank" rel="noopener"><strong>16×16-LED-Matrix</strong></a> am Raspberry Pi Pico,
+            der <a href="https://github.com/bonbon08/ente-bongo" target="_blank" rel="noopener"><strong>Tipp-Ente</strong></a> für den Linux-Desktop
+            und meinem <a href="https://github.com/bonbon08/testgame_raylib" target="_blank" rel="noopener"><strong>Jump-Game</strong></a> in C &amp; Raylib.
           </p>
         </article>
         <article class="card">
           <div class="card__icon">🌱</div>
           <h3>Gerade lerne ich</h3>
           <p>
-            Mehr <strong>C</strong> (Raylib, ncurses, CMake), <strong>Flutter / Dart</strong> für Android-Apps
-            und wie CPUs ticken – z. B. mit meinem
-            <a href="https://github.com/bonbon08/Johnny_C" target="_blank" rel="noopener"><strong>Johnny-Simulator</strong></a> in C.
+            <strong>MicroPython</strong> auf dem Pi Pico, Gehäuse in <strong>OpenSCAD</strong> für den 3D-Drucker,
+            <strong>GTK 3</strong> für Desktop-Apps und weiter <strong>C</strong> mit Raylib und
+            <strong>Flutter / Dart</strong> für Android.
           </p>
         </article>
         <article class="card">
@@ -77,17 +80,18 @@
 
       <article class="spotlight">
         <div class="spotlight__label">Aktuelles Hauptprojekt</div>
-        <h3 class="spotlight__title">Jump-Game</h3>
+        <h3 class="spotlight__title">Pico LED-Matrix</h3>
         <p>
-          Ein Arcade-Jump-Game in C mit Raylib, für PC und Android. Die Chiptune-Musik wird live im Code
-          synthetisiert (ganz ohne Musikdateien), es gibt einen Shop mit freischaltbaren Tracks und einen
-          <strong>Twitch-Plays-Modus</strong>, in dem der ganze Chat per „jump“ und „fall“ gemeinsam spielt.
+          Vier günstige WS2812B-8×8-Panels am Raspberry Pi Pico ergeben eine 16×16-Pixel-Fläche, die nur über USB
+          läuft. Darauf laufen 26 Animationen in MicroPython – von Feuer, Aquarium und Game of Life bis zu Autorennen
+          und einem Raycasting-Shooter. Dazu gibt es eine PC-Oberfläche mit Live-Vorschau, Sound-Visualizer,
+          Bildschirm-Streaming und ein <strong>3D-druckbares Gehäuse</strong> aus OpenSCAD.
         </p>
         <div class="spotlight__tags">
-          <span>C</span><span>Raylib</span><span>Android</span><span>Twitch-Chat</span>
+          <span>MicroPython</span><span>Raspberry Pi Pico</span><span>WS2812B</span><span>OpenSCAD</span>
         </div>
         <div class="spotlight__links">
-          <a class="btn btn--primary" href="https://github.com/bonbon08/testgame_raylib" target="_blank" rel="noopener">Zum Code</a>
+          <a class="btn btn--primary" href="https://github.com/bonbon08/pico-ledmatrix" target="_blank" rel="noopener">Zum Code</a>
         </div>
       </article>
 
@@ -95,9 +99,31 @@
 
       <p class="more">
         Noch mehr kleine Experimente findest du auf
-        <a href="https://github.com/bonbon08?tab=repositories" target="_blank" rel="noopener">GitHub</a> und Games auf
-        <a href="https://bonbon08.itch.io/" target="_blank" rel="noopener">itch.io</a>.
+        <a href="https://github.com/bonbon08?tab=repositories" target="_blank" rel="noopener">GitHub</a>.
       </p>
+    </section>
+
+    <!-- itch.io -->
+    <section id="itch" class="section">
+      <h2 class="section__title"><span class="accent">#</span> Spielbar auf itch.io</h2>
+      <p class="section__intro">
+        Fertige Spiele und Programme zum Runterladen oder direkt im Browser spielen – viele davon in
+        <strong>PICO-8</strong>, das neueste in C &amp; Raylib.
+      </p>
+      <div class="category__grid" id="games"></div>
+      <p class="more"><a href="https://bonbon08.itch.io/" target="_blank" rel="noopener">Alle auf itch.io ansehen →</a></p>
+    </section>
+
+    <!-- Zeichnen -->
+    <section id="art" class="section">
+      <h2 class="section__title"><span class="accent">#</span> Zeichnen</h2>
+      <p class="section__intro">
+        Wenn ich nicht programmiere, zeichne ich digital und lade die Timelapses als Shorts auf
+        <a href="https://youtube.com/@bonbon-v1x" target="_blank" rel="noopener">YouTube</a> hoch.
+        Wünsche, was ich als Nächstes zeichnen soll, gerne in die Kommentare.
+        Mehr Bilder gibt's auf <a href="https://instagram.com/bonbonv1x" target="_blank" rel="noopener">Instagram</a>.
+      </p>
+      <div class="videos" id="videos"></div>
     </section>
 
     <!-- Tech stack -->

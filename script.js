@@ -30,6 +30,7 @@ const CATEGORIES = [
     text: "Programme, die ich selbst gebraucht habe.",
     projects: [
       { name: "Android_Jelly_Domscroll", label: "Jellyreels", tech: "Flutter · Dart", desc: "Reels-artiges Scrollen durch Videos mit vorgeladenem Player-Pool und 2×-Speed." },
+      { name: "ente-bongo", label: "Tipp-Ente", tech: "Python · GTK 3", desc: "Durchsichtige Pixel-Ente als Desktop-Begleiter für Linux, die bei jedem Tastendruck auf ihre Tastatur pickt." },
       { name: "stitching_template", label: "Stitch Canvas Generator", tech: "Python", desc: "Macht aus Bildern 3D-druckbare Stick-Vorlagen als STL, mit 3D-Vorschau und PKGBUILD für Arch." },
       { name: "alpaka.problem", tech: "Web", desc: "Generiert Probleme, weil ich selbst nicht genug habe." },
       { name: "BonEncryptor", tech: "Python", desc: "Verschlüsselungsprogramm mit GUI (tkinter + PyCryptodome)." },
@@ -54,6 +55,7 @@ const CATEGORIES = [
     title: "Hardware",
     text: "Mikrocontroller, Displays und Kram, der blinkt.",
     projects: [
+      { name: "pico-ledmatrix", label: "Pico LED-Matrix", tech: "MicroPython · Pi Pico · OpenSCAD", desc: "16×16-LED-Matrix aus vier WS2812B-Panels am Raspberry Pi Pico, mit 26 Animationen, PC-Oberfläche und 3D-druckbarem Gehäuse." },
       { name: "Display_Server_ESP8266", label: "Display Server ESP8266", tech: "C++", desc: "Firmware für einen ESP8266 mit LCD, der Inhalte übers Netzwerk empfängt." },
       { name: "resource_sender", tech: "Rust", desc: "Schickt die PC-Auslastung live an das ESP8266-Display." },
       { name: "Esp-01s-minisystem", label: "ESP-01S Minisystem", tech: "C++", desc: "Ein kleines Testsystem für den ESP-01S." },
@@ -70,6 +72,31 @@ const CATEGORIES = [
   },
 ];
 
+// Spiele & Programme auf itch.io – slug = Teil der URL nach bonbon08.itch.io/, Bild liegt unter img/itch/<slug>.png
+const ITCH = "https://bonbon08.itch.io/";
+const GAMES = [
+  { slug: "jumper-chicken", title: "Jumper Chicken", tech: "Browser · Windows · Linux · Android", desc: "Hüpf als Huhn von Wand zu Wand, weich den Stacheln aus und schalte mit Münzen neue Hühner, Hintergründe und Chiptune-Musik frei." },
+  { slug: "pico-fallingblocks", title: "Pico Falling Blocks", tech: "PICO-8 · Browser", desc: "Kleines Action-Spiel mit herunterfallenden Blöcken, inzwischen in Version 3.0." },
+  { slug: "pico-chicken", title: "Pico Chicken", tech: "PICO-8 · Browser", desc: "Kümmer dich um dein kleines Huhn, sonst ist es nach ein paar Minuten weg – ein Mini-Tamagotchi." },
+  { slug: "jumpingpets", title: "Jumpingpets", tech: "PICO-8 · Browser", desc: "Überleb so lange wie möglich: Mit X springen – aber stößt dein Huhn oben an, ist es auch vorbei." },
+  { slug: "pico-pets-screensaver", title: "Pico Pets Screensaver", tech: "PICO-8", desc: "Ein kleiner Bildschirmschoner, gemacht in PICO-8." },
+  { slug: "pico-paint", title: "Pico-Paint", tech: "PICO-8 · Browser", desc: "Ein kleines Malprogramm in PICO-8." },
+  { slug: "guess-c64", title: "Guess C64", tech: "C64 BASIC", desc: "Kleines Ratespiel für den Commodore 64, auf Deutsch und Englisch." },
+  { slug: "jumpi", title: "Jumpi", tech: "PICO-8", desc: "Du bist ein Auto und springst über Mauern. Abgebrochen, aber spielbar." },
+  { slug: "bonecrypt", title: "BonEcrypt", tech: "Python · Windows · Linux", desc: "Ver- und entschlüsselt Dateien, mit tkinter-Oberfläche." },
+  { slug: "auto-desktop", title: "Auto-.desktop", tech: "Python · Linux", desc: "Erstellt .desktop-Dateien und legt sie gleich in den richtigen Ordner." },
+];
+
+// Zeichen-Timelapses auf YouTube (Shorts) – Vorschaubild liegt unter img/yt/<id>.jpg
+const VIDEOS = [
+  { id: "YoH6aK5tdBo", title: "Katze" },
+  { id: "6RM6ZAMJPBo", title: "Hornet aus Silksong" },
+  { id: "Q5qmuRJTcfo", title: "Kuh" },
+  { id: "TcFc6JjEPTw", title: "Hollow Knight" },
+  { id: "-JKHR9MgYLo", title: "Katze" },
+  { id: "QUGTc-KB9vU", title: "Togepi" },
+];
+
 // Accounts im Bereich "Socials" – Reihenfolge = Anzeige-Reihenfolge, color = Farbstreifen links
 const SOCIALS = [
   { name: "YouTube", handle: "@bonbon-v1x", url: "https://youtube.com/@bonbon-v1x", color: "#ff0000" },
@@ -81,8 +108,8 @@ const SOCIALS = [
 
 const STACK = {
   Sprachen: ["C", "Rust", "Python", "Dart", "NASM / Assembly"],
-  Frameworks: ["Raylib", "Flutter", "ncurses", "Pygame", "Flask", "SQLite"],
-  Hardware: ["Arduino", "Raspberry Pi", "ESP8266"],
+  Frameworks: ["Raylib", "Flutter", "ncurses", "Pygame", "GTK 3", "MicroPython", "Flask", "SQLite"],
+  Hardware: ["Arduino", "Raspberry Pi", "Raspberry Pi Pico", "ESP8266", "WS2812B", "OpenSCAD / 3D-Druck"],
   Server: ["Nginx", "Docker", "Gitea", "Jellyfin", "Pi-Hole", "Tor"],
   Grafik: ["Aseprite", "GIMP", "Krita"],
   System: ["Arch Linux", "XFCE", "CMake", "Android"],
@@ -109,6 +136,24 @@ function renderCategories() {
           </a>`).join("")}
       </div>
     </section>`).join("");
+}
+
+function renderGames() {
+  $("#games").innerHTML = GAMES.map((g) => `
+    <a class="project project--media" href="${ITCH}${g.slug}" target="_blank" rel="noopener">
+      <img class="project__img" src="img/itch/${g.slug}.png" alt="" width="315" height="250" loading="lazy">
+      <span class="project__name">${g.title}</span>
+      <span class="project__desc">${g.desc}</span>
+      <span class="project__tech">${g.tech}</span>
+    </a>`).join("");
+}
+
+function renderVideos() {
+  $("#videos").innerHTML = VIDEOS.map((v) => `
+    <a class="video" href="https://www.youtube.com/shorts/${v.id}" target="_blank" rel="noopener">
+      <img src="img/yt/${v.id}.jpg" alt="Zeichnung: ${v.title}" loading="lazy">
+      <span>${v.title}</span>
+    </a>`).join("");
 }
 
 function renderSocials() {
@@ -142,5 +187,7 @@ function initTheme() {
 $("#year").textContent = new Date().getFullYear();
 initTheme();
 renderCategories();
+renderGames();
+renderVideos();
 renderSocials();
 renderStack();

@@ -11,10 +11,13 @@ Sprache der Seite und der Antworten an den User: **Deutsch** (locker, Du-Form).
 - `script.js` – **alle Inhalte als Daten**, ganz oben in der Datei:
   - `CATEGORIES` – Projekte nach Themen; `name` = exakter GitHub-Repo-Name (daraus wird der Link), `label` = optionaler Anzeigename, `tech`, `desc` (deutsch, 1 Satz)
   - `SOCIALS` – Accounts: `name`, `handle`, `url`, `color` (Markenfarbe), optional `rel: "me"` (Mastodon-Verifizierung)
+  - `GAMES` – Spiele/Programme von itch.io (`slug` = URL-Teil, Cover lokal unter `img/itch/<slug>.png`)
+  - `VIDEOS` – Zeichen-Timelapses (YouTube-Shorts, `id`, deutscher `title`, Vorschau lokal unter `img/yt/<id>.jpg`, schwarze Ränder abgeschnitten)
   - `STACK` – Tech-Stack nach Gruppen
 - `style.css` – Design. Hauptfarbe Blau (`--accent`), Hell/Dunkel über CSS-Variablen
 - `fonts/`, `avatar.png` – lokal gehostet
 - `scripts/check-repos.py` – vergleicht GitHub-Repos mit `CATEGORIES`
+- `scripts/check-media.py` – vergleicht itch.io und YouTube mit `GAMES`/`VIDEOS`, `--bilder` lädt fehlende Bilder
 - `scripts/ignored-repos.txt` – Repos, die absichtlich nicht auf der Seite stehen
 - `ANLEITUNG.md` – Anleitung für den Menschen
 

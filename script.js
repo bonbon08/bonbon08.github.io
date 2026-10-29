@@ -25,6 +25,17 @@ const CATEGORIES = [
     ],
   },
   {
+    icon: "🐧",
+    title: "Linux-Desktop",
+    text: "Eigene Desktop-Umgebung, eigene Distro und Apps für den Linux-Alltag.",
+    projects: [
+      { name: "Nothing_Wayland", label: "Nothing Desktop", tech: "C · wlroots · Python", desc: "Eigene Wayland-Desktopumgebung im Stil von Nothing OS, mit selbst geschriebenem Compositor, Dock, Widgets und XWayland." },
+      { name: "wellnotes", label: "WellNotes", tech: "Python · GTK 4 · Flutter", desc: "Handschrift-Notizen für Linux und Android mit Stift-Unterstützung, die .goodnotes-Dateien öffnen und speichern und Markdown mit LaTeX oder Obsidian-Vaults importieren." },
+      { name: "distro-builder", label: "Distro Builder", tech: "Rust · GTK 4 · archiso", desc: "Baukasten für eigene Arch-basierte Distros: in der Oberfläche zusammenklicken, heraus kommt eine ISO mit grafischem Installer oder ein Raspberry-Pi-Image." },
+      { name: "clipdeck", tech: "Python · GTK 4", desc: "Nimmt im Hintergrund auf und speichert per Hotkey die letzten Sekunden als Clip, auch unter Wayland." },
+    ],
+  },
+  {
     icon: "📱",
     title: "Apps & Tools",
     text: "Programme, die ich selbst gebraucht habe.",
@@ -108,11 +119,11 @@ const SOCIALS = [
 
 const STACK = {
   Sprachen: ["C", "Rust", "Python", "Dart", "NASM / Assembly"],
-  Frameworks: ["Raylib", "Flutter", "ncurses", "Pygame", "GTK 3", "MicroPython", "Flask", "SQLite"],
+  Frameworks: ["Raylib", "Flutter", "ncurses", "Pygame", "GTK 3", "GTK 4 / libadwaita", "wlroots", "MicroPython", "Flask", "SQLite"],
   Hardware: ["Arduino", "Raspberry Pi", "Raspberry Pi Pico", "ESP8266", "WS2812B", "OpenSCAD / 3D-Druck"],
   Server: ["Nginx", "Docker", "Gitea", "Jellyfin", "Pi-Hole", "Tor"],
   Grafik: ["Aseprite", "GIMP", "Krita"],
-  System: ["Arch Linux", "XFCE", "CMake", "Android"],
+  System: ["Arch Linux", "Wayland", "archiso", "XFCE", "CMake", "Android"],
 };
 
 const $ = (sel) => document.querySelector(sel);

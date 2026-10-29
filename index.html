@@ -6,7 +6,7 @@
   <title>Bonbon – Developer</title>
   <meta name="description" content="Bonbon – 18-jähriger Developer aus Deutschland. Games in C und PICO-8, Emulatoren, Hardware, Apps und Zeichnungen.">
   <link rel="icon" href="avatar.png">
-  <link rel="stylesheet" href="style.css?v=202610262141">
+  <link rel="stylesheet" href="style.css?v=202610291034">
 </head>
 <body>
   <header class="nav">
@@ -52,19 +52,18 @@
           <div class="card__icon">🔭</div>
           <h3>Aktuell arbeite ich an</h3>
           <p>
-            Meiner <a href="https://github.com/bonbon08/pico-ledmatrix" target="_blank" rel="noopener"><strong>16×16-LED-Matrix</strong></a> am Raspberry Pi Pico,
-            der <a href="https://github.com/bonbon08/ente-bongo" target="_blank" rel="noopener"><strong>Tipp-Ente</strong></a> für den Linux-Desktop
-            und meinem Jump-Game <a href="https://github.com/bonbon08/testgame_raylib" target="_blank" rel="noopener"><strong>Jumper Chicken</strong></a> in C &amp; Raylib
-            (<a href="https://bonbon08.itch.io/jumper-chicken" target="_blank" rel="noopener">hier spielen</a>).
+            Meinem eigenen Wayland-Desktop <a href="https://github.com/bonbon08/Nothing_Wayland" target="_blank" rel="noopener"><strong>Nothing Desktop</strong></a>,
+            der Notiz-App <a href="https://github.com/bonbon08/wellnotes" target="_blank" rel="noopener"><strong>WellNotes</strong></a> für Linux &amp; Android
+            und dem <a href="https://github.com/bonbon08/distro-builder" target="_blank" rel="noopener"><strong>Distro Builder</strong></a> für eigene Arch-Distros.
           </p>
         </article>
         <article class="card">
           <div class="card__icon">🌱</div>
           <h3>Gerade lerne ich</h3>
           <p>
-            <strong>MicroPython</strong> auf dem Pi Pico, Gehäuse in <strong>OpenSCAD</strong> für den 3D-Drucker,
-            <strong>GTK 3</strong> für Desktop-Apps und weiter <strong>C</strong> mit Raylib und
-            <strong>Flutter / Dart</strong> für Android.
+            Einen eigenen <strong>Wayland-Compositor</strong> mit <strong>wlroots</strong> in C,
+            <strong>GTK 4 / libadwaita</strong> für Desktop-Apps, <strong>Rust</strong>-GUIs und
+            eigene ISOs mit <strong>archiso</strong>.
           </p>
         </article>
         <article class="card">
@@ -81,18 +80,18 @@
 
       <article class="spotlight">
         <div class="spotlight__label">Aktuelles Hauptprojekt</div>
-        <h3 class="spotlight__title">Pico LED-Matrix</h3>
+        <h3 class="spotlight__title">Nothing Desktop</h3>
         <p>
-          Vier günstige WS2812B-8×8-Panels am Raspberry Pi Pico ergeben eine 16×16-Pixel-Fläche, die nur über USB
-          läuft. Darauf laufen 26 Animationen in MicroPython – von Feuer, Aquarium und Game of Life bis zu Autorennen
-          und einem Raycasting-Shooter. Dazu gibt es eine PC-Oberfläche mit Live-Vorschau, Sound-Visualizer,
-          Bildschirm-Streaming und ein <strong>3D-druckbares Gehäuse</strong> aus OpenSCAD.
+          Eine komplette Wayland-Desktopumgebung im Stil von Nothing OS: Mein eigener Compositor
+          <strong>nothing-wm</strong> in C auf Basis von wlroots, dazu eine Shell mit Leiste, Dock, App-Suche,
+          Kontrollzentrum und verschiebbaren Widgets. Schwarz/Weiß mit Punktmatrix-Ziffern, helles und dunkles Design,
+          wählbare Kontrastfarbe – und X11-Programme laufen über XWayland.
         </p>
         <div class="spotlight__tags">
-          <span>MicroPython</span><span>Raspberry Pi Pico</span><span>WS2812B</span><span>OpenSCAD</span>
+          <span>C</span><span>wlroots</span><span>Wayland</span><span>Python</span>
         </div>
         <div class="spotlight__links">
-          <a class="btn btn--primary" href="https://github.com/bonbon08/pico-ledmatrix" target="_blank" rel="noopener">Zum Code</a>
+          <a class="btn btn--primary" href="https://github.com/bonbon08/Nothing_Wayland" target="_blank" rel="noopener">Zum Code</a>
         </div>
       </article>
 
@@ -144,6 +143,6 @@
     <p>© <span id="year"></span> Bonbon · gebaut mit HTML, CSS &amp; ein bisschen JS</p>
   </footer>
 
-  <script src="script.js?v=202610262141"></script>
+  <script src="script.js?v=202610291034"></script>
 </body>
 </html>
